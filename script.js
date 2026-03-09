@@ -3,12 +3,34 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initParallax();
   initScrollReveal();
   initHeader();
   initMobileMenu();
   initGalleryLightbox();
   initQRCode();
 });
+
+/* ---- Parallax Background ---- */
+function initParallax() {
+  const bg = document.getElementById('heroBg');
+  if (!bg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        const heroHeight = bg.parentElement.offsetHeight;
+        if (scrolled < heroHeight) {
+          bg.style.transform = `translateY(${scrolled * 0.35}px) scale(1.05)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
 
 /* ---- Scroll Reveal ---- */
 function initScrollReveal() {

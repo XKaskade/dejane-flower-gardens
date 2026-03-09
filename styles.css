@@ -152,6 +152,9 @@ a { color: inherit; text-decoration: none; }
   height: 52px;
   width: auto;
   object-fit: contain;
+  border-radius: 4px;
+  /* Blend the logo's off-white bg with the header */
+  mix-blend-mode: multiply;
 }
 
 /* Nav */
@@ -221,20 +224,26 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:
-    linear-gradient(160deg, rgba(45, 80, 22, 0.10) 0%, rgba(200, 150, 46, 0.08) 50%, rgba(123, 107, 154, 0.06) 100%),
-    url('https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1400&q=80') center/cover no-repeat;
   overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -20%;
+  background: url('https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1600&q=80') center/cover no-repeat;
+  will-change: transform;
+  z-index: 0;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(250, 245, 238, 0.55) 0%,
-    rgba(250, 245, 238, 0.70) 40%,
-    rgba(250, 245, 238, 0.85) 100%
+    rgba(250, 245, 238, 0.30) 0%,
+    rgba(250, 245, 238, 0.50) 40%,
+    rgba(250, 245, 238, 0.78) 100%
   );
 }
 
@@ -251,14 +260,6 @@ a { color: inherit; text-decoration: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-logo {
-  max-width: 280px;
-  width: 60%;
-  height: auto;
-  margin-bottom: 1.5rem;
-  animation: heroFadeIn 1.2s var(--ease-out) 0.2s both;
-  filter: drop-shadow(0 4px 12px rgba(26, 26, 24, 0.08));
-}
 
 .hero-title {
   font-family: var(--font-display);
