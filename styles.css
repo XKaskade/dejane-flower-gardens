@@ -230,7 +230,8 @@ a { color: inherit; text-decoration: none; }
 .hero-bg {
   position: absolute;
   inset: -20%;
-  background: url('https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1600&q=80') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?w=1600&q=80') center/cover no-repeat;
+  background-color: var(--sage-light);
   will-change: transform;
   z-index: 0;
 }
